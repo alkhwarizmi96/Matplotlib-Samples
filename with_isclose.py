@@ -3,13 +3,17 @@ import matplotlib.pyplot as plt
 
 # Define multiple functions
 def f1(x):
-    return ((x**2) - 4) / (x - 2)
+    with np.errstate(divide='ignore', invalid='ignore'):
+        result = x
+        result[np.isclose(x, 2, 0.001953125)] = np.nan
+        return result
 
 def f2(x):
     return abs(x-2) / (x - 2)
 
 def f3(x):
     return 1 / ((x - 2)**2)
+
 
 # Create x values
 x = np.linspace(-5, 5, 1000)

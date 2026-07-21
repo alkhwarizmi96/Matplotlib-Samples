@@ -11,6 +11,7 @@ def f2(x):
 def f3(x):
     return 1 / ((x - 2)**2)
 
+
 # Create x values
 x = np.linspace(-5, 5, 1000)
 
